@@ -8,11 +8,12 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
+            // MKZ
             CarManager carManager = new CarManager(new InMemoryCarDal());
 
-            foreach (var item in carManager.ReadAll())
+            foreach (var c in carManager.ReadAll())
             {
-                Console.WriteLine(item.Description);
+                Console.WriteLine(c.ModelYear + " " + c.Description);
             }
         }
     }
