@@ -9,7 +9,7 @@ namespace DataAccess.Abstract
     {
         // CRUD
         void Create(Car car);
-        List<Car> Read();
+        List<Car> ReadAll();
         void Update(Car car);
         void Delete(Car car);
 

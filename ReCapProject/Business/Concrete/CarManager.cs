@@ -20,7 +20,7 @@ namespace Business.Concrete
         {
             // İŞ KODLARI
 
-            return _carDal.Read();
+            return _carDal.ReadAll();
         }
     }
 }

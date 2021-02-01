@@ -37,7 +37,7 @@ namespace DataAccess.Concrete.InMemory
             _myCars.Remove(toDelete);
         }
 
-        public List<Car> Read()
+        public List<Car> ReadAll()
         {
             return _myCars;
         }
