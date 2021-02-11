@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,12 +19,21 @@ namespace Business.Concrete
 
         public void Add(Car c)
         {
-            _carDal.Add(c);
+            if(c.Description.Length >= 2)
+            {
+                if(c.DailyPrice > 0)
+                {
+                    _carDal.Add(c);
+                    return;
+                }
+            }
+
+            Console.WriteLine("İstenilen değerleri sağlamadığı için eklenemedi!!!");
         }
 
         public void Delete(Car c)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(c);
         }
 
         public List<Car> GetAll()
@@ -31,6 +41,16 @@ namespace Business.Concrete
             // İŞ KODLARI
 
             return _carDal.GetAll();
+        }
+
+        public List<CarDetailDto> GetAllDetailsOfCar()
+        {
+            return _carDal.GetAllDetailsOfCar();
+        }
+
+        public Car GetById(int id)
+        {
+            return _carDal.Get(c => c.Id == id);
         }
 
         public List<Car> GetCarsByBrandId(int id)
