@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
+using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -24,6 +24,10 @@ namespace DataAccess.Concrete.InMemory
             };
         }
 
+        public void Add(Car entity)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Create(Car car)
         {
@@ -35,6 +39,16 @@ namespace DataAccess.Concrete.InMemory
             Car toDelete = _myCars.SingleOrDefault(m => m.Id == car.Id);
 
             _myCars.Remove(toDelete);
+        }
+
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> ReadAll()

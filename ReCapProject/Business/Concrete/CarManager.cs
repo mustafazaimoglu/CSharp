@@ -16,11 +16,21 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> ReadAll()
+        public void Add(Car c)
+        {
+            _carDal.Add(c);
+        }
+
+        public void Delete(Car c)
+        {
+            _carDal.Delete(c);
+        }
+
+        public List<Car> GetAll()
         {
             // İŞ KODLARI
 
-            return _carDal.ReadAll();
+            return _carDal.GetAll();
         }
     }
 }
