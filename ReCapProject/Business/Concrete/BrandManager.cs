@@ -21,6 +21,7 @@ namespace Business.Concrete
             _brandDal.Add(b);
         }
 
+
         public void Delete(Brand b)
         {
             _brandDal.Delete(b);
