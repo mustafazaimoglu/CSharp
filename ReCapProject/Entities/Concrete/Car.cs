@@ -11,9 +11,9 @@ namespace Entities.Concrete
         {
         }
 
-        public Car(int ıd, int brandId, int colorId, int modelYear, int dailyPrice, string description)
+        public Car(int Id, int brandId, int colorId, int modelYear, int dailyPrice, string description)
         {
-            Id = ıd;
+            this.Id = Id;
             BrandId = brandId;
             ColorId = colorId;
             ModelYear = modelYear;

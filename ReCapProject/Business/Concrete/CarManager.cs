@@ -23,7 +23,7 @@ namespace Business.Concrete
 
         public void Delete(Car c)
         {
-            _carDal.Delete(c);
+            throw new NotImplementedException();
         }
 
         public List<Car> GetAll()
@@ -31,6 +31,21 @@ namespace Business.Concrete
             // İŞ KODLARI
 
             return _carDal.GetAll();
+        }
+
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id);
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id);
+        }
+
+        public void Update(Car c)
+        {
+            _carDal.Update(c);
         }
     }
 }
