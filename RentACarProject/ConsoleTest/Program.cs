@@ -26,7 +26,7 @@ namespace ConsoleTest
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-            foreach (var b in brandManager.GetAll())
+            foreach (var b in brandManager.GetAll().Data)
             {
                 Console.WriteLine(b.BrandId + " " + b.BrandName);
             }
@@ -37,7 +37,7 @@ namespace ConsoleTest
 
             //colorManager.Update(new Color(8, "Pink"));
 
-            foreach (var c in colorManager.GetAll())
+            foreach (var c in colorManager.GetAll().Data)
             {
                 Console.WriteLine(c.ColorId + " " + c.ColorName);
             }
@@ -47,21 +47,24 @@ namespace ConsoleTest
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            Console.WriteLine("ID :1 -> " + carManager.GetById(1).Description);
+            Console.WriteLine(carManager.GetAll().Success);
+            Console.WriteLine(carManager.GetAll().Message);
 
-            foreach (var c in carManager.GetAllDetailsOfCar()) // Join yapılmış tam hali
+            Console.WriteLine("ID :1 -> " + carManager.GetById(1).Data.Description);
+
+            foreach (var c in carManager.GetAllDetailsOfCar().Data) // Join yapılmış tam hali
             {
                 Console.WriteLine("ID :" + c.CarId + " " + c.ModelYear + " " + c.ColorName + " " + c.BrandName + " " + c.Description);
             }
 
             Console.WriteLine("\n*** *** *** *** *** *** ***");
-            foreach (var c in carManager.GetCarsByBrandId(6))
+            foreach (var c in carManager.GetCarsByBrandId(6).Data)
             {
                 Console.WriteLine(c.Id + " " + c.BrandId + " " + c.ColorId + " " + c.ModelYear + " " + c.Description);
             }
 
             Console.WriteLine("\n** ** ** ** ** ** ** ** **");
-            foreach (var c in carManager.GetCarsByColorId(3))
+            foreach (var c in carManager.GetCarsByColorId(3).Data)
             {
                 Console.WriteLine(c.Id + " " + c.BrandId + " " + c.ColorId + " " + c.ModelYear + " " + c.Description);
             }
